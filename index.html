@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)file:///Users/isuru/Downloads/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a3a2e">
+<title>15 Saturdays · Family Lunch &amp; Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./15 Saturdays · Family Lunch &amp; Adventure_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f1e7;
+    --paper: #fbf7ee;
+    --ink: #1a2920;
+    --ink-soft: #4a5a4f;
+    --accent: #c4622d;
+    --accent-deep: #8a3e15;
+    --leaf: #2d5a3d;
+    --leaf-light: #5a8a6b;
+    --gold: #b8893a;
+    --line: rgba(26, 41, 32, 0.12);
+    --shadow: 0 1px 2px rgba(26, 41, 32, 0.06), 0 4px 16px rgba(26, 41, 32, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 98, 45, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(45, 90, 61, 0.05) 0%, transparent 50%);
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.15 0 0 0 0 0.1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Header */
+  header {
+    padding: 56px 0 32px;
+    text-align: center;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 9vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--leaf);
+    font-weight: 500;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 28px 0 8px;
+    color: var(--gold);
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    max-width: 60px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+
+  .divider svg { width: 22px; height: 22px; }
+
+  /* Filter chips */
+  .filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 16px 4px 20px;
+    margin: 0 -20px 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+
+  .chip {
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink-soft);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+  }
+
+  .chip:hover { border-color: var(--leaf-light); color: var(--leaf); }
+
+  .chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* Week cards */
+  .weeks { display: flex; flex-direction: column; gap: 16px; padding-bottom: 60px; }
+
+  .week {
+    background: var(--paper);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    position: relative;
+  }
+
+  .week:active { transform: scale(0.99); }
+
+  .week.expanded {
+    box-shadow: 0 2px 4px rgba(26, 41, 32, 0.06), 0 12px 32px rgba(26, 41, 32, 0.12);
+  }
+
+  .week-header {
+    padding: 22px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .week-num {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    position: relative;
+  }
+
+  .week-num::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px dashed var(--line);
+  }
+
+  .week.expanded .week-num {
+    background: var(--accent);
+  }
+
+  .week-info { flex: 1; min-width: 0; }
+
+  .week-location {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .week-meta {
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .week-meta .dot {
+    width: 3px;
+    height: 3px;
+    background: var(--ink-soft);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .drive-tag {
+    color: var(--leaf);
+    font-weight: 600;
+  }
+
+  .chevron {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    color: var(--ink-soft);
+  }
+
+  .week.expanded .chevron { transform: rotate(180deg); color: var(--accent); }
+
+  .week-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .week.expanded .week-body { max-height: 800px; }
+
+  .week-body-inner {
+    padding: 4px 22px 24px;
+    border-top: 1px dashed var(--line);
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
+  .section {
+    margin-bottom: 18px;
+  }
+
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .place-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+
+  .place-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  .stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .stars svg { width: 12px; height: 12px; }
+
+  .reviews-count {
+    opacity: 0.7;
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--leaf);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border: 1px solid var(--leaf);
+    border-radius: 100px;
+    transition: all 0.2s ease;
+  }
+
+  .map-link:hover, .map-link:active {
+    background: var(--leaf);
+    color: var(--paper);
+  }
+
+  .map-link svg { width: 14px; height: 14px; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    border-top: 1px dashed var(--line);
+    margin-top: 20px;
+  }
+
+  footer .heart { color: var(--accent); }
+
+  /* Expand-all button */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 4px 16px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  .toggle-all {
+    background: transparent;
+    border: none;
+    color: var(--leaf);
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 6px 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Smooth entrance */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .week {
+    animation: slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  }
+
+  .week:nth-child(1) { animation-delay: 0.05s; }
+  .week:nth-child(2) { animation-delay: 0.08s; }
+  .week:nth-child(3) { animation-delay: 0.11s; }
+  .week:nth-child(4) { animation-delay: 0.14s; }
+  .week:nth-child(5) { animation-delay: 0.17s; }
+  .week:nth-child(n+6) { animation-delay: 0.2s; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    header { padding: 40px 0 24px; }
+    .week-header { padding: 18px 18px; gap: 14px; }
+    .week-num { width: 46px; height: 46px; font-size: 19px; }
+    .week-location { font-size: 17px; }
+    .week-body-inner { padding: 18px 18px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Auckland · West Coast &amp; Beyond</div>
+    <h1>Fifteen <em>Saturdays</em></h1>
+    <div class="divider">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2 L14 9 L21 10 L16 14 L18 21 L12 17 L6 21 L8 14 L3 10 L10 9 Z"></path>
+      </svg>
+    </div>
+    <p class="subtitle">A rotating family lunch &amp; activity plan from Green Bay. New places, mid-tier prices, 30–60 minutes away. Tap a week to expand.</p>
+  </header>
+
+  <div class="controls">
+    <span id="weekStatus">15 weeks of adventure</span>
+    <button class="toggle-all" id="toggleAll">Expand all</button>
+  </div>
+
+  <div class="weeks" id="weeks">
+      <article class="week" data-week="1">
+        <div class="week-header" onclick="toggleWeek(1)">
+          <div class="week-num">01</div>
+          <div class="week-info">
+            <div class="week-location">Titirangi</div>
+            <div class="week-meta">
+              <span>Mediterranean / Kiwi</span>
+              <span class="dot"></span>
+              <span class="drive-tag">10 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Deco Eatery</div>
+              <p class="place-desc">Cozy bush-side eatery with a great kids' menu (cheeseburger, fries &amp; activity pack). Enclosed terrace with native bush views.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.4</span>
+                <span class="reviews-count">· 1,635 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Deco%20Eatery%20Titirangi%20Auckland&amp;query_place_id=ChIJdYpcA8lDDW0Rwda3MW2Hujc" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Arataki Visitor Centre</div>
+              <p class="place-desc">Easy boardwalk through Waitākere Ranges. Native forest, harbour views, plus the famous Danish ice cream van by the carpark.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="2">
+        <div class="week-header" onclick="toggleWeek(2)">
+          <div class="week-num">02</div>
+          <div class="week-info">
+            <div class="week-location">Mission Bay</div>
+            <div class="week-meta">
+              <span>Mediterranean platters</span>
+              <span class="dot"></span>
+              <span class="drive-tag">30 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Azzuro Mission Bay</div>
+              <p class="place-desc">Beachfront Mediterranean with generous meat &amp; fish platters. Relaxed vibe, kids welcome.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.6</span>
+                <span class="reviews-count">· 321 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Azzuro%20Mission%20Bay%20Mission%20Bay%20Auckland&amp;query_place_id=ChIJQR2GAVtJDW0RSSMXOMujUo8" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Mission Bay Beach &amp; Bastion Point</div>
+              <p class="place-desc">Beach walk, Movenpick ice cream, playground at Bastion Point. Beautiful harbour views.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="3">
+        <div class="week-header" onclick="toggleWeek(3)">
+          <div class="week-num">03</div>
+          <div class="week-info">
+            <div class="week-location">Devonport</div>
+            <div class="week-meta">
+              <span>Cafe / Brunch</span>
+              <span class="dot"></span>
+              <span class="drive-tag">40 min + ferry</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Corelli's Cafe</div>
+              <p class="place-desc">Hidden gem cafe — fluffy kids' french toast, friendly staff. A short walk from the wharf.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.5</span>
+                <span class="reviews-count">· 1,186 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Corelli%27s%20Cafe%20Devonport%20Auckland&amp;query_place_id=ChIJURSiN8M3DW0RTcPFgz10xqk" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Mt Victoria &amp; Navy Museum</div>
+              <p class="place-desc">Take the ferry from downtown (kids love it). Walk up Mt Victoria for harbour views, or visit the free Navy Museum.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="4">
+        <div class="week-header" onclick="toggleWeek(4)">
+          <div class="week-num">04</div>
+          <div class="week-info">
+            <div class="week-location">Kumeu</div>
+            <div class="week-meta">
+              <span>American BBQ</span>
+              <span class="dot"></span>
+              <span class="drive-tag">30 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Morepork BBQ Kumeu</div>
+              <p class="place-desc">Texas-style smoked BBQ — ribs, brisket, pork belly. Dog-friendly, generous platters perfect for sharing.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.6</span>
+                <span class="reviews-count">· 1,256 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Morepork%20BBQ%20Kumeu%20Kumeu%20Auckland&amp;query_place_id=ChIJg8nRw5oVDW0R2eHzgU3TxpY" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Soljans Estate Winery</div>
+              <p class="place-desc">Family-friendly winery with a kids' play area and gelato. Or pick fresh berries at The Big Berry Farm.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="5">
+        <div class="week-header" onclick="toggleWeek(5)">
+          <div class="week-num">05</div>
+          <div class="week-info">
+            <div class="week-location">Howick</div>
+            <div class="week-meta">
+              <span>Cafe / All-day brunch</span>
+              <span class="dot"></span>
+              <span class="drive-tag">45 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Howick Village Cafe</div>
+              <p class="place-desc">Vibrant village cafe — kids' pancakes are amazing, extensive menu, warm staff.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.4</span>
+                <span class="reviews-count">· 832 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Howick%20Village%20Cafe%20Howick%20Auckland&amp;query_place_id=ChIJcVDjrChLDW0R1TlPvEaxy8o" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Howick Historical Village</div>
+              <p class="place-desc">Hands-on living history museum with costumed actors, blacksmith demos, and traditional games. Kids absolutely love it.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="6">
+        <div class="week-header" onclick="toggleWeek(6)">
+          <div class="week-num">06</div>
+          <div class="week-info">
+            <div class="week-location">Wynyard Quarter</div>
+            <div class="week-meta">
+              <span>Pizza / Italian</span>
+              <span class="dot"></span>
+              <span class="drive-tag">30 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">The Conservatory</div>
+              <p class="place-desc">Wood-fired pizzas with harbour views. Lively atmosphere, great spot to people-watch.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.6</span>
+                <span class="reviews-count">· 2,365 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Conservatory%20Wynyard%20Quarter%20Auckland&amp;query_place_id=ChIJe7WKufVHDW0Rf3BuMRDD9w0" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Silo Park Playground</div>
+              <p class="place-desc">Giant slide, splash pad (in summer), and creative playground. Free and right next to the restaurant.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="7">
+        <div class="week-header" onclick="toggleWeek(7)">
+          <div class="week-num">07</div>
+          <div class="week-info">
+            <div class="week-location">Riverhead</div>
+            <div class="week-meta">
+              <span>Gastro pub</span>
+              <span class="dot"></span>
+              <span class="drive-tag">30 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">The Riverhead</div>
+              <p class="place-desc">Historic pub on the water with a big covered deck. Family-friendly with a jetty out to the river.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.4</span>
+                <span class="reviews-count">· 3,072 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Riverhead%20Riverhead%20Auckland&amp;query_place_id=ChIJezJDS_AVDW0ROm_OHcrWTFI" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Riverhead Forest Walk</div>
+              <p class="place-desc">Short forest walks in tall pines just 10 min from the pub. Or hire kayaks at the wharf in summer.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="8">
+        <div class="week-header" onclick="toggleWeek(8)">
+          <div class="week-num">08</div>
+          <div class="week-info">
+            <div class="week-location">Takapuna</div>
+            <div class="week-meta">
+              <span>Bistro / Seafood</span>
+              <span class="dot"></span>
+              <span class="drive-tag">35 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">St Marée</div>
+              <p class="place-desc">Bistro looking out to Rangitoto. Seafood chowder is a standout — generous portions, friendly staff.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.7</span>
+                <span class="reviews-count">· 273 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=St%20Mar%C3%A9e%20Takapuna%20Auckland&amp;query_place_id=ChIJjb18HGE5DW0R2VFPzrLZh-0" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Takapuna Beach Walk</div>
+              <p class="place-desc">Walk along the beach to Thorne Bay. At low tide, kids love exploring the fossilised forest in the rocks.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="9">
+        <div class="week-header" onclick="toggleWeek(9)">
+          <div class="week-num">09</div>
+          <div class="week-info">
+            <div class="week-location">Ponsonby</div>
+            <div class="week-meta">
+              <span>Italian</span>
+              <span class="dot"></span>
+              <span class="drive-tag">25 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Prego</div>
+              <p class="place-desc">Auckland Italian classic. Walk-ins only — arrive around 12. Pasta and pizza are next-level.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.6</span>
+                <span class="reviews-count">· 2,165 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Prego%20Ponsonby%20Auckland&amp;query_place_id=ChIJQ3yEHpFHDW0Rka8ZeCQTnsc" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Ponsonby Central &amp; Western Park</div>
+              <p class="place-desc">Wander Ponsonby Central for treats and shopping, then head to Western Park for the imaginative playground.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="10">
+        <div class="week-header" onclick="toggleWeek(10)">
+          <div class="week-num">10</div>
+          <div class="week-info">
+            <div class="week-location">Waimauku</div>
+            <div class="week-meta">
+              <span>English-style</span>
+              <span class="dot"></span>
+              <span class="drive-tag">35 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Game Keepers Restaurant</div>
+              <p class="place-desc">Cozy English-style restaurant with a fireplace, kids' menu, and beautiful outdoor area. Lamb shank is legendary.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.7</span>
+                <span class="reviews-count">· 242 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Game%20Keepers%20Restaurant%20Waimauku%20Auckland&amp;query_place_id=ChIJf3Y6F7cTDW0RA22iZI7pUPg" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Muriwai Beach &amp; Gannet Colony</div>
+              <p class="place-desc">The famous gannet colony viewing platform is genuinely spectacular. Wild black sand beach for a walk afterward.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="11">
+        <div class="week-header" onclick="toggleWeek(11)">
+          <div class="week-num">11</div>
+          <div class="week-info">
+            <div class="week-location">Matakana</div>
+            <div class="week-meta">
+              <span>Modern NZ</span>
+              <span class="dot"></span>
+              <span class="drive-tag">55 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Matakana Market Kitchen</div>
+              <p class="place-desc">Riverside setting with garden views. Picturesque, family-friendly, and consistently great food.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.5</span>
+                <span class="reviews-count">· 1,252 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Matakana%20Market%20Kitchen%20Matakana%20Auckland&amp;query_place_id=ChIJrS0n2RHbDG0ReR-gV2ZrDB8" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Matakana Village Market &amp; Sculptureum</div>
+              <p class="place-desc">Saturday morning farmers' market (get there before lunch). Then explore Sculptureum's sculpture gardens — surreal and amazing.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="12">
+        <div class="week-header" onclick="toggleWeek(12)">
+          <div class="week-num">12</div>
+          <div class="week-info">
+            <div class="week-location">North Wharf</div>
+            <div class="week-meta">
+              <span>Italian</span>
+              <span class="dot"></span>
+              <span class="drive-tag">30 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Baduzzi</div>
+              <p class="place-desc">Refined Italian on the waterfront. Their crayfish meatballs are legendary — slightly higher end but worth it.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.5</span>
+                <span class="reviews-count">· 2,703 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Baduzzi%20North%20Wharf%20Auckland&amp;query_place_id=ChIJJdsozvVHDW0RGpYtg7jcwyI" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Maritime Museum &amp; Heritage Tram</div>
+              <p class="place-desc">Interactive maritime museum, plus rides on the historic tram around Wynyard Quarter.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="13">
+        <div class="week-header" onclick="toggleWeek(13)">
+          <div class="week-num">13</div>
+          <div class="week-info">
+            <div class="week-location">Piha</div>
+            <div class="week-meta">
+              <span>Cafe / Casual</span>
+              <span class="dot"></span>
+              <span class="drive-tag">40 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Piha Cafe</div>
+              <p class="place-desc">Local beach cafe with good pizzas, fresh fish, and a relaxed vibe. Coffee bar and local beers too.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.1</span>
+                <span class="reviews-count">· 774 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Piha%20Cafe%20Piha%20Auckland&amp;query_place_id=ChIJHVLCIVNuDW0RH1EPnPAzMwg" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Kitekite Falls &amp; Lion Rock</div>
+              <p class="place-desc">Easy 45-min return walk to a beautiful waterfall with a swimming hole. Or climb Lion Rock for the iconic Piha view.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="14">
+        <div class="week-header" onclick="toggleWeek(14)">
+          <div class="week-num">14</div>
+          <div class="week-info">
+            <div class="week-location">Birkenhead</div>
+            <div class="week-meta">
+              <span>Southern BBQ</span>
+              <span class="dot"></span>
+              <span class="drive-tag">35 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Brothers Beer &amp; Juke Joint BBQ</div>
+              <p class="place-desc">Southern-style BBQ in a sunny courtyard. Fried chicken sandwich is a highlight, kids' menu available.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.5</span>
+                <span class="reviews-count">· 107 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Brothers%20Beer%20%26%20Juke%20Joint%20BBQ%20Birkenhead%20Auckland&amp;query_place_id=ChIJyWJkKVg5DW0RuDMzMQYblPM" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Chelsea Sugar Heritage Park</div>
+              <p class="place-desc">Free walking trails around ponds with iconic views of the historic sugar factory. Peaceful and uniquely Auckland.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="week" data-week="15">
+        <div class="week-header" onclick="toggleWeek(15)">
+          <div class="week-num">15</div>
+          <div class="week-info">
+            <div class="week-location">Browns Bay</div>
+            <div class="week-meta">
+              <span>Modern NZ</span>
+              <span class="dot"></span>
+              <span class="drive-tag">45 min</span>
+            </div>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">Black Antler Eatery</div>
+              <p class="place-desc">Warm, welcoming eatery near the beach. Best sirloin in years per locals, plus great pizzas and breakfast options.</p>
+              <div class="rating-row">
+                <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"></path></svg> 4.6</span>
+                <span class="reviews-count">· 799 Google reviews</span>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Black%20Antler%20Eatery%20Browns%20Bay%20Auckland&amp;query_place_id=ChIJM7zvy-Y7DW0RN8Cp8Ts_7Es" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">Browns Bay Beach &amp; Long Bay</div>
+              <p class="place-desc">Browns Bay beach is sheltered and family-friendly. Drive 10 min to Long Bay Regional Park for the playground and rock pools.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  <footer>
+    Made with <span class="heart">♥</span> for family Saturdays<br>
+    <small style="opacity:0.7;">Tap any restaurant to open in Google Maps</small>
+  </footer>
+
+</div>
+
+<script>
+  const weeks = [
+    {
+      n: 1,
+      location: "Titirangi",
+      cuisine: "Mediterranean / Kiwi",
+      drive: "10 min",
+      restaurant: {
+        name: "Deco Eatery",
+        desc: "Cozy bush-side eatery with a great kids' menu (cheeseburger, fries & activity pack). Enclosed terrace with native bush views.",
+        rating: 4.4,
+        reviews: 1635,
+        place_id: "ChIJdYpcA8lDDW0Rwda3MW2Hujc"
+      },
+      activity: {
+        name: "Arataki Visitor Centre",
+        desc: "Easy boardwalk through Waitākere Ranges. Native forest, harbour views, plus the famous Danish ice cream van by the carpark."
+      }
+    },
+    {
+      n: 2,
+      location: "Mission Bay",
+      cuisine: "Mediterranean platters",
+      drive: "30 min",
+      restaurant: {
+        name: "Azzuro Mission Bay",
+        desc: "Beachfront Mediterranean with generous meat & fish platters. Relaxed vibe, kids welcome.",
+        rating: 4.6,
+        reviews: 321,
+        place_id: "ChIJQR2GAVtJDW0RSSMXOMujUo8"
+      },
+      activity: {
+        name: "Mission Bay Beach & Bastion Point",
+        desc: "Beach walk, Movenpick ice cream, playground at Bastion Point. Beautiful harbour views."
+      }
+    },
+    {
+      n: 3,
+      location: "Devonport",
+      cuisine: "Cafe / Brunch",
+      drive: "40 min + ferry",
+      restaurant: {
+        name: "Corelli's Cafe",
+        desc: "Hidden gem cafe — fluffy kids' french toast, friendly staff. A short walk from the wharf.",
+        rating: 4.5,
+        reviews: 1186,
+        place_id: "ChIJURSiN8M3DW0RTcPFgz10xqk"
+      },
+      activity: {
+        name: "Mt Victoria & Navy Museum",
+        desc: "Take the ferry from downtown (kids love it). Walk up Mt Victoria for harbour views, or visit the free Navy Museum."
+      }
+    },
+    {
+      n: 4,
+      location: "Kumeu",
+      cuisine: "American BBQ",
+      drive: "30 min",
+      restaurant: {
+        name: "Morepork BBQ Kumeu",
+        desc: "Texas-style smoked BBQ — ribs, brisket, pork belly. Dog-friendly, generous platters perfect for sharing.",
+        rating: 4.6,
+        reviews: 1256,
+        place_id: "ChIJg8nRw5oVDW0R2eHzgU3TxpY"
+      },
+      activity: {
+        name: "Soljans Estate Winery",
+        desc: "Family-friendly winery with a kids' play area and gelato. Or pick fresh berries at The Big Berry Farm."
+      }
+    },
+    {
+      n: 5,
+      location: "Howick",
+      cuisine: "Cafe / All-day brunch",
+      drive: "45 min",
+      restaurant: {
+        name: "Howick Village Cafe",
+        desc: "Vibrant village cafe — kids' pancakes are amazing, extensive menu, warm staff.",
+        rating: 4.4,
+        reviews: 832,
+        place_id: "ChIJcVDjrChLDW0R1TlPvEaxy8o"
+      },
+      activity: {
+        name: "Howick Historical Village",
+        desc: "Hands-on living history museum with costumed actors, blacksmith demos, and traditional games. Kids absolutely love it."
+      }
+    },
+    {
+      n: 6,
+      location: "Wynyard Quarter",
+      cuisine: "Pizza / Italian",
+      drive: "30 min",
+      restaurant: {
+        name: "The Conservatory",
+        desc: "Wood-fired pizzas with harbour views. Lively atmosphere, great spot to people-watch.",
+        rating: 4.6,
+        reviews: 2365,
+        place_id: "ChIJe7WKufVHDW0Rf3BuMRDD9w0"
+      },
+      activity: {
+        name: "Silo Park Playground",
+        desc: "Giant slide, splash pad (in summer), and creative playground. Free and right next to the restaurant."
+      }
+    },
+    {
+      n: 7,
+      location: "Riverhead",
+      cuisine: "Gastro pub",
+      drive: "30 min",
+      restaurant: {
+        name: "The Riverhead",
+        desc: "Historic pub on the water with a big covered deck. Family-friendly with a jetty out to the river.",
+        rating: 4.4,
+        reviews: 3072,
+        place_id: "ChIJezJDS_AVDW0ROm_OHcrWTFI"
+      },
+      activity: {
+        name: "Riverhead Forest Walk",
+        desc: "Short forest walks in tall pines just 10 min from the pub. Or hire kayaks at the wharf in summer."
+      }
+    },
+    {
+      n: 8,
+      location: "Takapuna",
+      cuisine: "Bistro / Seafood",
+      drive: "35 min",
+      restaurant: {
+        name: "St Marée",
+        desc: "Bistro looking out to Rangitoto. Seafood chowder is a standout — generous portions, friendly staff.",
+        rating: 4.7,
+        reviews: 273,
+        place_id: "ChIJjb18HGE5DW0R2VFPzrLZh-0"
+      },
+      activity: {
+        name: "Takapuna Beach Walk",
+        desc: "Walk along the beach to Thorne Bay. At low tide, kids love exploring the fossilised forest in the rocks."
+      }
+    },
+    {
+      n: 9,
+      location: "Ponsonby",
+      cuisine: "Italian",
+      drive: "25 min",
+      restaurant: {
+        name: "Prego",
+        desc: "Auckland Italian classic. Walk-ins only — arrive around 12. Pasta and pizza are next-level.",
+        rating: 4.6,
+        reviews: 2165,
+        place_id: "ChIJQ3yEHpFHDW0Rka8ZeCQTnsc"
+      },
+      activity: {
+        name: "Ponsonby Central & Western Park",
+        desc: "Wander Ponsonby Central for treats and shopping, then head to Western Park for the imaginative playground."
+      }
+    },
+    {
+      n: 10,
+      location: "Waimauku",
+      cuisine: "English-style",
+      drive: "35 min",
+      restaurant: {
+        name: "Game Keepers Restaurant",
+        desc: "Cozy English-style restaurant with a fireplace, kids' menu, and beautiful outdoor area. Lamb shank is legendary.",
+        rating: 4.7,
+        reviews: 242,
+        place_id: "ChIJf3Y6F7cTDW0RA22iZI7pUPg"
+      },
+      activity: {
+        name: "Muriwai Beach & Gannet Colony",
+        desc: "The famous gannet colony viewing platform is genuinely spectacular. Wild black sand beach for a walk afterward."
+      }
+    },
+    {
+      n: 11,
+      location: "Matakana",
+      cuisine: "Modern NZ",
+      drive: "55 min",
+      restaurant: {
+        name: "Matakana Market Kitchen",
+        desc: "Riverside setting with garden views. Picturesque, family-friendly, and consistently great food.",
+        rating: 4.5,
+        reviews: 1252,
+        place_id: "ChIJrS0n2RHbDG0ReR-gV2ZrDB8"
+      },
+      activity: {
+        name: "Matakana Village Market & Sculptureum",
+        desc: "Saturday morning farmers' market (get there before lunch). Then explore Sculptureum's sculpture gardens — surreal and amazing."
+      }
+    },
+    {
+      n: 12,
+      location: "North Wharf",
+      cuisine: "Italian",
+      drive: "30 min",
+      restaurant: {
+        name: "Baduzzi",
+        desc: "Refined Italian on the waterfront. Their crayfish meatballs are legendary — slightly higher end but worth it.",
+        rating: 4.5,
+        reviews: 2703,
+        place_id: "ChIJJdsozvVHDW0RGpYtg7jcwyI"
+      },
+      activity: {
+        name: "Maritime Museum & Heritage Tram",
+        desc: "Interactive maritime museum, plus rides on the historic tram around Wynyard Quarter."
+      }
+    },
+    {
+      n: 13,
+      location: "Piha",
+      cuisine: "Cafe / Casual",
+      drive: "40 min",
+      restaurant: {
+        name: "Piha Cafe",
+        desc: "Local beach cafe with good pizzas, fresh fish, and a relaxed vibe. Coffee bar and local beers too.",
+        rating: 4.1,
+        reviews: 774,
+        place_id: "ChIJHVLCIVNuDW0RH1EPnPAzMwg"
+      },
+      activity: {
+        name: "Kitekite Falls & Lion Rock",
+        desc: "Easy 45-min return walk to a beautiful waterfall with a swimming hole. Or climb Lion Rock for the iconic Piha view."
+      }
+    },
+    {
+      n: 14,
+      location: "Birkenhead",
+      cuisine: "Southern BBQ",
+      drive: "35 min",
+      restaurant: {
+        name: "Brothers Beer & Juke Joint BBQ",
+        desc: "Southern-style BBQ in a sunny courtyard. Fried chicken sandwich is a highlight, kids' menu available.",
+        rating: 4.5,
+        reviews: 107,
+        place_id: "ChIJyWJkKVg5DW0RuDMzMQYblPM"
+      },
+      activity: {
+        name: "Chelsea Sugar Heritage Park",
+        desc: "Free walking trails around ponds with iconic views of the historic sugar factory. Peaceful and uniquely Auckland."
+      }
+    },
+    {
+      n: 15,
+      location: "Browns Bay",
+      cuisine: "Modern NZ",
+      drive: "45 min",
+      restaurant: {
+        name: "Black Antler Eatery",
+        desc: "Warm, welcoming eatery near the beach. Best sirloin in years per locals, plus great pizzas and breakfast options.",
+        rating: 4.6,
+        reviews: 799,
+        place_id: "ChIJM7zvy-Y7DW0RN8Cp8Ts_7Es"
+      },
+      activity: {
+        name: "Browns Bay Beach & Long Bay",
+        desc: "Browns Bay beach is sheltered and family-friendly. Drive 10 min to Long Bay Regional Park for the playground and rock pools."
+      }
+    }
+  ];
+
+  function starSvg() {
+    return `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.2 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.8 8.5 Z"/></svg>`;
+  }
+
+  function chevronSvg() {
+    return `<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
+  }
+
+  function pinSvg() {
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+  }
+
+  function buildWeek(w) {
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(w.restaurant.name + ' ' + w.location + ' Auckland')}&query_place_id=${w.restaurant.place_id}`;
+    return `
+      <article class="week" data-week="${w.n}">
+        <div class="week-header" onclick="toggleWeek(${w.n})">
+          <div class="week-num">${String(w.n).padStart(2, '0')}</div>
+          <div class="week-info">
+            <div class="week-location">${w.location}</div>
+            <div class="week-meta">
+              <span>${w.cuisine}</span>
+              <span class="dot"></span>
+              <span class="drive-tag">${w.drive}</span>
+            </div>
+          </div>
+          ${chevronSvg()}
+        </div>
+        <div class="week-body">
+          <div class="week-body-inner">
+            <div class="section">
+              <div class="section-label">Lunch</div>
+              <div class="place-name">${w.restaurant.name}</div>
+              <p class="place-desc">${w.restaurant.desc}</p>
+              <div class="rating-row">
+                <span class="stars">${starSvg()} ${w.restaurant.rating.toFixed(1)}</span>
+                <span class="reviews-count">· ${w.restaurant.reviews.toLocaleString()} Google reviews</span>
+              </div>
+              <a class="map-link" href="${mapUrl}" target="_blank" rel="noopener">
+                ${pinSvg()} Open in Maps
+              </a>
+            </div>
+            <div class="section">
+              <div class="section-label">After Lunch</div>
+              <div class="place-name">${w.activity.name}</div>
+              <p class="place-desc">${w.activity.desc}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  document.getElementById('weeks').innerHTML = weeks.map(buildWeek).join('');
+
+  function toggleWeek(n) {
+    const el = document.querySelector(`[data-week="${n}"]`);
+    el.classList.toggle('expanded');
+    updateToggleAllButton();
+  }
+
+  function updateToggleAllButton() {
+    const expandedCount = document.querySelectorAll('.week.expanded').length;
+    const btn = document.getElementById('toggleAll');
+    btn.textContent = expandedCount === weeks.length ? 'Collapse all' : 'Expand all';
+  }
+
+  document.getElementById('toggleAll').addEventListener('click', () => {
+    const allWeeks = document.querySelectorAll('.week');
+    const allExpanded = document.querySelectorAll('.week.expanded').length === weeks.length;
+    allWeeks.forEach(w => {
+      if (allExpanded) w.classList.remove('expanded');
+      else w.classList.add('expanded');
+    });
+    updateToggleAllButton();
+  });
+</script>
+
+
+
+</body></html>
